@@ -6,10 +6,11 @@ public abstract class Ghost{
     
     public Ghost(){
         color = 0;//later
-	speed = 1 //speed:1-3
+	speed = 1; //speed:1-3
+	mode = 0;
     }
 
-    public abstract moving();
+    public abstract void moving(PacMan p);
     
     public void setMode(int m){
 	/*
