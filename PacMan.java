@@ -1,7 +1,7 @@
 public class PacMan{
-    Location current, start, opposite;
-    int lives, points;
-    char direction; //wasd
+    private Location current, start, opposite;
+    private int lives, points;
+    private char direction; //wasd
 
     public PacMan(Location s){
 	start = s;
@@ -22,6 +22,12 @@ public class PacMan{
 	//change direction?
     }
 
+    public Location getPos(){
+	return current;
+    }
 
+    public Location getOp(){
+	return opposite;
+    }
 
 }
