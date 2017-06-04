@@ -11,7 +11,9 @@ public abstract class Ghost{
 	current = start;
     }
 
-    public abstract void moving(PacMan p);
+    public void moving(PacMan p){
+
+    }
     
     public void setMode(int m){
 	/*
