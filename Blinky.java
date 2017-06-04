@@ -23,6 +23,8 @@ public class Blinky extends Ghost{
 	int c = l.getCol();
 	int d = current.getCol();
     }
+
     
     
 }
+
