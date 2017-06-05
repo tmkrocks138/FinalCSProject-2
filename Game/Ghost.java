@@ -4,6 +4,7 @@ public abstract class Ghost{
     int mode, speed, color;
     boolean alive;
     
+    
     public Ghost(Location start){
         color = 0;//later
 	speed = 1; //speed:1-3
@@ -11,7 +12,7 @@ public abstract class Ghost{
 	current = start;
     }
 
-    public void moving(PacMan p){
+    public void moving(){
       
     }
 
@@ -23,6 +24,8 @@ public abstract class Ghost{
 	 */
 	mode = m;
     }
+
+    public void 
     
 
     

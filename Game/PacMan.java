@@ -6,12 +6,12 @@ public class PacMan{
     public PacMan(Location s){
 	start = s;
 	current = s;
-	live = 3;
+	lives = 3;
 	points = 0;
 	direction = 'a';
     }
 
-    public void eat(Pellet p){
+    public void eat(Pellets p){
 	points += 10;
 	//if pellet is super it goes up 50
 	p.eatMe();
