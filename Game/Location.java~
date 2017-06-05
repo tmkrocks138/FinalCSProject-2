@@ -1,4 +1,6 @@
 import java.lang.Math;
+import processing.core.*;
+
 public class Location{
 
     private int row, col;
@@ -31,6 +33,9 @@ public class Location{
 
     public int dist(Location other){
 	return Math.abs(this.row - other.getRow()) + Math.abs(this.col - other.getCol());
+    }
+
+    public String toString(){
     }
 	
 
