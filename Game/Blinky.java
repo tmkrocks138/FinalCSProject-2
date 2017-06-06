@@ -30,7 +30,16 @@ public class Blinky extends Ghost{
 	int s = Math.abs(c - d);
 	return r + s;
     }
-
+    public int setToPac(PacMan p, Location loc){
+	Location l = p.getPos();
+	int a = l.getRow();
+	int b = loc.getRow();
+	int c = l.getCol();
+	int d = loc.getCol();
+	int r = Math.abs(a - b);
+	int s = Math.abs(c - d);
+	return r + s;
+    }
     
     
 }
