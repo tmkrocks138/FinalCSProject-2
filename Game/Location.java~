@@ -1,14 +1,26 @@
 import java.lang.Math;
-import processing.core.*;
-
 public class Location{
 
     private int row, col;
-    private boolean hasPellet, isWall;
+    private boolean hasPellet, isWall, superPellet;
 
     public Location (int r, int c){
 	row = r;
 	col = c;
+    }
+
+    public Location (int r, int c, boolean pellet, boolean wall){
+	row = r;
+	col = c;
+	hasPellet = pellet;
+	isWall = wall;
+    }
+    public Location (int r, int c, boolean pellet, boolean wall, boolean isSuper){
+	row = r;
+	col = c;
+	hasPellet = pellet;
+	isWall = wall;
+	superPellet = isSuper;
     }
 
     public int getRow(){
@@ -30,12 +42,12 @@ public class Location{
     public void setPellet(boolean pellet){
     	hasPellet = pellet;
     }
+    public void setSuper(boolean isSuper){
+    	hasPellet = isSuper;
+    }
 
     public int dist(Location other){
 	return Math.abs(this.row - other.getRow()) + Math.abs(this.col - other.getCol());
-    }
-
-    public String toString(){
     }
 	
 

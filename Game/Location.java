@@ -9,6 +9,13 @@ public class Location{
 	col = c;
     }
 
+    public Location (int r, int c, boolean pellet, boolean wall){
+	row = r;
+	col = c;
+	hasPellet = pellet;
+	isWall = wall;
+    }
+
     public int getRow(){
 	return row;
     }
@@ -28,6 +35,7 @@ public class Location{
     public void setPellet(boolean pellet){
     	hasPellet = pellet;
     }
+
 
     public int dist(Location other){
 	return Math.abs(this.row - other.getRow()) + Math.abs(this.col - other.getCol());
