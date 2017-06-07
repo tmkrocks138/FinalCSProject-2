@@ -1,12 +1,8 @@
+Maze board = new Maze(maze.txt);
 
-  //public Maze board = new Maze(maze.txt);
-  //public Location home;
- // public PacMan pac = new PacMan(Location home);
-  
-  void setup(){
-    size(576, 448);
+void setup(){
+    size(700, 700);
     background(0);
     
-  }
-
-
+    
+}

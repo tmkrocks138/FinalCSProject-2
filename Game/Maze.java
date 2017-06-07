@@ -6,10 +6,10 @@ public class Maze{
 
   private Location home;
   private int maxRows, maxCols;
+  private ArrayList<Location[]> board = new ArrayList<Location[]>();
 
   public Maze(String filename){
     ArrayList<char[]> lines = new ArrayList<char[]>();
-    ArrayList<Location[]> board = new ArrayList<Location[]>();
     try{
       Scanner in = new Scanner(new File(filename));
       while(in.hasNext()){
@@ -54,6 +54,19 @@ public class Maze{
     maxRows = maze.length;
     maxCols = maze[0].length;
 
+  }
+
+  public Location getHome(){
+    return home;
+  }
+  public int getMaxRows(){
+    return maxRows;
+  }
+  public int getMaxCols(){
+    return maxCols;
+  }
+  public ArrayList<Location[]> getBoard(){
+    return board;
   }
 
 }
