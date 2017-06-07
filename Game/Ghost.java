@@ -39,19 +39,18 @@ public abstract class Ghost{
 		}
 	    }
 	    int i = 0;
+	    int x = 0;
 	    if(!line[0].equals(null)){
 		i = setToPac(pac, line[0]);
-		int x = 0;
 	    }
 	    else if(!line[1].equals(null)){
 		i = setToPac(pac, line[1]);
-		int x = 1;
+		x = 1;
 	    }
 	    else if(!line[2].equals(null)){
 		i = setToPac(pac, line[2]);
-		int x = 2;
+		x = 2;
 	    }
-	    
 	    for(int n = x + 1; n < 4; n++){
 		if(setToPac(pac, line[n]) < i){
 		    i = setToPac(pac, line[n]);
@@ -60,44 +59,45 @@ public abstract class Ghost{
 	    }
 	    current = line[x];
 	}
+    }
 
-	    public abstract int setToPac(PacMan p);
+    public abstract int setToPac(PacMan p);
 
-	    public abstract int setToPac(PacMan p, Location x);
+    public abstract int setToPac(PacMan p, Location x);
 
-	    public boolean notWall(int num){
-		if(num== 0){
-		    return Maze.getPos(current - 1, current) != '#';
-		}
-		else if(num == 1){
-		    return Maze.getPos(current, current + 1) != '#';
-		}
-		else if (num == 2){
-		    return Maze.getPos(current + 1, current) != '#';
-		}
-		else if (num == 3){
-		    return Maze.getPos(current, current + 1) != '#';
-		}
-	    }
-	    public void setMode(int m){
-		/*
-		  0 - normal
-		  1 - terrified
-		*/
-		mode = m;
-	    }
-    
-	    public boolean caughtPac(PacMan p){
-		return (p.getPos.getRow() == this.getRow() && p.getPos.getCol() == this.getCol());
-	    }
-
-	    public int getRow(){
-		return current.getRow();
-	    }
-	    public int getCol(){
-		return current.getCol();
-	    }
-
-    
+    public boolean notWall(int num){
+	if(num== 0){
+	    return getPos(current.getRow() - 1, current.getCol()).isWall(false);
 	}
+	else if(num == 1){
+	    return getPos(current.getRow(), current.getCol() - 1)..isWall(false);
+	}
+	else if (num == 2){
+	    return getPos(current.getRow() + 1, current.getCol()).isWall(false);
+	}
+	else if (num == 3){
+	    return getPos(current.getRow(), current.getCol() + 1).isWall(false);
+	}
+    }
+    public void setMode(int m){
+	/*
+	  0 - normal
+	  1 - terrified
+	*/
+	mode = m;
+    }
+    
+    public boolean caughtPac(PacMan p){
+	return (p.getPos().getRow() == this.getRow() && p.getPos().getCol() == this.getCol());
+    }
+
+    public int getRow(){
+	return current.getRow();
+    }
+    public int getCol(){
+	return current.getCol();
+    }
+
+    
+}
 
