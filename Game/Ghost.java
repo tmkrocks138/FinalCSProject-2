@@ -18,18 +18,19 @@ public abstract class Ghost{
 
     public void moving(PacMan pac){
 	if(!caughtPac(pac)){
+	    Location l;
 	    for(int n = 0; n < 4; n++){
 		if (n == 0){
-		    Location l = new Location(current.getRow() - 1, current.getCol());
+		    l = new Location(current.getRow() - 1, current.getCol());
 		}
 		else if (n == 1){
-		    Location l = new Location(current.getRow(), current.getCol() + 1);
+		    l = new Location(current.getRow(), current.getCol() + 1);
 		}
 		else if (n == 2){
-		    Location l = new Location(current.getRow() + 1, current.getCol());
+		    l = new Location(current.getRow() + 1, current.getCol());
 		}
 		else{
-		    Location l = new Location(current.getRow(), current.getCol() - 1);
+		    l = new Location(current.getRow(), current.getCol() - 1);
 		}
 		if(!l.isWall()){
 		    line[n] = null;
@@ -66,18 +67,24 @@ public abstract class Ghost{
     public abstract int setToPac(PacMan p, Location x);
 
     public boolean notWall(int num){
+	Location temp;
 	if(num== 0){
-	    return getPos(current.getRow() - 1, current.getCol()).isWall(false);
+	    temp = new Location(current.getRow() - 1, current.getCol());
+	    return !temp.isWall();
 	}
 	else if(num == 1){
-	    return getPos(current.getRow(), current.getCol() - 1)..isWall(false);
+	    temp = new Location(current.getRow(), current.getCol() - 1);
+	    return !temp.isWall();
 	}
 	else if (num == 2){
-	    return getPos(current.getRow() + 1, current.getCol()).isWall(false);
+	    temp = new Location(current.getRow() + 1, current.getCol());
+	    return !temp.isWall();
 	}
 	else if (num == 3){
-	    return getPos(current.getRow(), current.getCol() + 1).isWall(false);
+	    temp = new Location(current.getRow(), current.getCol() + 1);
+	    return !temp.isWall();
 	}
+	return false;
     }
     public void setMode(int m){
 	/*

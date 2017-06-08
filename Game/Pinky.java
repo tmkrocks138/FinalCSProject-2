@@ -11,7 +11,7 @@ public class Pinky extends Ghost{
     }
     
     public void setAim(PacMan p){
-	Location x;
+	Location x=null;
 	if (mode == 0){
 	    x = findSpot(p.getPos(), p.getDirection());
 	   
@@ -23,8 +23,8 @@ public class Pinky extends Ghost{
 	
     }
 
-    public Loacation findSpot(Location l, char dir){
-	Location z;
+    public Location findSpot(Location l, char dir){
+	Location z = null;
 	int r = l.getRow();
 	int c = l.getCol();
 	try{
