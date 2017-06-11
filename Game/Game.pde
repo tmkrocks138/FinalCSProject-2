@@ -11,4 +11,8 @@ void draw(){
   if(keyPressed){
     pac.move(key);
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/Michela

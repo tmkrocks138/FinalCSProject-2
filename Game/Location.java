@@ -3,6 +3,7 @@ public class Location{
 
     private int row, col;
     private boolean hasPellet, isWall;
+    private Pellets pel;
 
     public Location (int r, int c){
 	row = r;
@@ -14,6 +15,14 @@ public class Location{
 	col = c;
 	hasPellet = pellet;
 	isWall = wall;
+    }
+
+    public Location (int r, int c, boolean pellet, boolean wall, Pellets p){
+  row = r;
+  col = c;
+  hasPellet = pellet;
+  isWall = wall;
+  pel = p;
     }
 
     public int getRow(){
