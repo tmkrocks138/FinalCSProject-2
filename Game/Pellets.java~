@@ -26,9 +26,6 @@ public class Pellets{
     public boolean isEaten(){
 	return eaten;
     }
-    public void setPoints(int value){
-	points = value;
-    }
 
     public void eatMe(){
 	eaten = true;
