@@ -11,20 +11,17 @@ public class Maze{
     private Location[][] board = new Location[28][28];
 
     public Maze(String filename){
-  ArrayList<char[]> lines = new ArrayList<char[]>();
-  try{
-      Scanner in = new Scanner(new File(filename));
-      while(in.hasNext()){
-    lines.add(in.nextLine().toCharArray());
-      }
-  }catch(FileNotFoundException e){
-      System.out.println("File not found: "+filename);
-      System.exit(1);
+  String[] lines= loadStrings("data.txt"); 
+  maze = new char[lines.length][lines[0].length()];
+//  for(int i = 0; i < maze.length; i++){
+//      maze[i]=lines[i];
+//  }
+  for (int i = 0; i < lines.length; i++){
+    for (int j = 0; j < lines[i].length(); j++){
+      maze[i][j] = lines[i].charAt(j);
+    }
   }
-  maze = new char[lines.size()][];
-  for(int i = 0; i < maze.length; i++){
-      maze[i]=lines.get(i);
-  }
+
   for(int r=0; r<maze.length;r++){
       for(int c=0; c<maze[r].length;c++){
     if(maze[r][c]=='#'){
