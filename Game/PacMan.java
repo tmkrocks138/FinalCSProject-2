@@ -11,6 +11,14 @@ public class PacMan{
 	direction = 'a';
     }
 
+    public char getDirection(){
+	return direction;
+    }
+
+    public void changeDirection(char c){
+	direction = c;
+    }
+    
     public void eat(Pellets p){
 	points += 10;
 	//if pellet is super it goes up 50
