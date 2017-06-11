@@ -105,6 +105,10 @@ public abstract class Ghost{
 	return current.getCol();
     }
 
+    public Location getPos(){
+	return current;
+    }
+
     
 }
 
