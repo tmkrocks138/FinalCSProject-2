@@ -2,6 +2,7 @@ public class PacMan{
     private Location current, start, opposite;
     private int lives, points;
     private char direction; //wasd
+    private Location[][] board;
 
     public PacMan(Location s){
 	start = s;
@@ -20,14 +21,52 @@ public class PacMan{
     }
     
     public void eat(Pellets p){
-	points += 10;
+	points += p.getPoints();
 	//if pellet is super it goes up 50
 	p.eatMe();
     }
 
-    public void move(){
-	//change current location
-	//change direction?
+    public void move(char key){
+      if(key == 'w' || key == 'W'){
+        changeDirection(w);
+        while(current.getRow() - 1 >= 0 && !board[current.getRow() - 1][current.getCol()].isWall()){
+          current = board[current.getRow() - 1][current.getCol()];
+          if (current.hasPellet()){
+            eat(current.getPellet());
+            current.setPellet(false);
+          }   
+        }
+      }
+      if(key == 'a' || key == 'A'){
+        changeDirection(a);
+        while(current.getCol() - 1 >= 0 && !board[current.getRow()][current.getCol() - 1].isWall()){
+          current = board[current.getRow()][current.getCol() - 1];
+          if (current.hasPellet()){
+            eat(current.getPellet());
+            current.setPellet(false);
+          } 
+        }
+      }
+      if(key == 's' || key == 'S'){
+        changeDirection(s);
+        while(current.getRow() + 1 < board.length && !board[current.getRow() + 1][current.getCol()].isWall()){
+          current = board[current.getRow() + 1][current.getCol()];
+          if (current.hasPellet()){
+            eat(current.getPellet());
+            current.setPellet(false);
+          } 
+        }
+      }
+      if(key == 'd' || key == 'D'){
+        changeDirection(d);
+        while(current.getCol() + 1 < board[].length && !board[current.getRow()][current.getCol() + 1].isWall()){
+          current = board[current.getRow()][current.getCol() + 1];
+          if (current.hasPellet()){
+            eat(current.getPellet());
+            current.setPellet(false);
+          } 
+        }
+      }
     }
 
     public Location getPos(){
@@ -36,6 +75,10 @@ public class PacMan{
 
     public Location getOp(){
 	return opposite;
+    }
+    
+    public void setBoard(Maze mazey){
+      board = mazey.getBoard();
     }
 
 }
