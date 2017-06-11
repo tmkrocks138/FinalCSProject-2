@@ -1,4 +1,4 @@
-Maze map = new Maze(board);
+Maze map = new Maze("data.txt");
 
 void setup(){
     size(700, 700);
