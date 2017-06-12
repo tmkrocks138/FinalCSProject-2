@@ -88,5 +88,23 @@ public class PacMan{
     public int getPoints(){
       return points;
     }
+    
+    public void setOp(){
+int r, c;
+  if (current.getRow() > 14){
+    r = current.getRow() - 14;
+  }
+else{
+  r = current.getRow() + 14;
+}
+  if (current.getCol() > 14){
+    c = current.getCol() - 14;
+  }
+else{
+  c = current.getCol() + 14;
+}
+  Location l = new Location(r, c);
+  opposite = l;
+}
 
 }
