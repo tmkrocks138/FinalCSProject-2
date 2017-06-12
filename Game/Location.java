@@ -44,6 +44,9 @@ public class Location{
     public void setPellet(boolean pellet){
     	hasPellet = pellet;
     }
+    public Pellets getPellet(){
+      return pel;
+    }
 
 
     public int dist(Location other){
