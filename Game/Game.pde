@@ -95,4 +95,5 @@ void draw(){
   if(keyPressed){
     pac.move(key);
   }
+  refresh++;
 }
