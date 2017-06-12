@@ -109,4 +109,5 @@ void draw(){
     pac.move(key);
     image(pacImage, pac.getPos().getCol() * 25, pac.getPos().getRow() * 25, 25, 25);
   }
+  refresh++;
 }
