@@ -29,7 +29,7 @@ public class PacMan{
     public void move(char key){
       if(key == 'w' || key == 'W'){
         changeDirection('w');
-        while(current.getRow() - 1 >= 0 && !board[current.getRow() - 1][current.getCol()].isWall()){
+        if(current.getRow() - 1 >= 0 && !board[current.getRow() - 1][current.getCol()].isWall()){
           current = board[current.getRow() - 1][current.getCol()];
           if (current.hasPellet()){
             eat(current.getPellet());
@@ -39,7 +39,7 @@ public class PacMan{
       }
       if(key == 'a' || key == 'A'){
         changeDirection('a');
-        while(current.getCol() - 1 >= 0 && !board[current.getRow()][current.getCol() - 1].isWall()){
+        if(current.getCol() - 1 >= 0 && !board[current.getRow()][current.getCol() - 1].isWall()){
           current = board[current.getRow()][current.getCol() - 1];
           if (current.hasPellet()){
             eat(current.getPellet());
@@ -49,7 +49,7 @@ public class PacMan{
       }
       if(key == 's' || key == 'S'){
         changeDirection('s');
-        while(current.getRow() + 1 < board.length && !board[current.getRow() + 1][current.getCol()].isWall()){
+        if(current.getRow() + 1 < board.length && !board[current.getRow() + 1][current.getCol()].isWall()){
           current = board[current.getRow() + 1][current.getCol()];
           if (current.hasPellet()){
             eat(current.getPellet());
@@ -59,7 +59,7 @@ public class PacMan{
       }
       if(key == 'd' || key == 'D'){
         changeDirection('d');
-        while(current.getCol() + 1 < board[0].length && !board[current.getRow()][current.getCol() + 1].isWall()){
+        if(current.getCol() + 1 < board[0].length && !board[current.getRow()][current.getCol() + 1].isWall()){
           current = board[current.getRow()][current.getCol() + 1];
           if (current.hasPellet()){
             eat(current.getPellet());
@@ -79,6 +79,14 @@ public class PacMan{
     
     public void setBoard(Location[][] map){
       board = map;
+    }
+    
+    public Location getCurrent(){
+      return current;
+    }
+    
+    public int getPoints(){
+      return points;
     }
 
 }

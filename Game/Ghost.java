@@ -43,14 +43,14 @@
     }
     int i = 0;
     int x = 0;
-    if(!line[0].equals(null)){
+    if(line[0] != null){
         i = setToAim(aim, line[0]);
     }
-    else if(!line[1].equals(null)){
+    else if(line[1] != null){
         i = setToAim(aim, line[1]);
         x = 1;
     }
-    else if(!line[2].equals(null)){
+    else if(line[2] != null){
         i = setToAim(aim, line[2]);
         x = 2;
     }
