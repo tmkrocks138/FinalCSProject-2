@@ -11,10 +11,29 @@ void setup(){
     board = map.getBoard();
     pac = new PacMan(map.getHome());
     pac.setBoard(board);
+    
+     readMaze();
+    
     b = new Blinky(new Location(13, 14)); //red = 0
     c = new Clyde(new Location(14, 15));// orange = 3
     i = new Inky(new Location(13, 15)); // blue = 2
     p = new Pinky(new Location(14, 14)); //pink = 1
+}
+
+void readMaze(){
+  for(Location[] line: board){
+    for(Location tile: line){
+      //println(tile.getRow() + " " + tile.getCol());
+      if(tile.isWall()){
+        fill(0, 0, 255);
+        rect(tile.getCol() * 25, tile.getRow() * 25, 25, 25);
+      }
+      else{
+        fill(0, 0, 0);
+        rect(tile.getCol() * 25, tile.getRow() * 25, 25, 25);
+      }
+    }
+  }
 }
 
 void draw(){
