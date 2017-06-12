@@ -5,8 +5,13 @@ import java.util.*;
 public class Pinky extends Ghost{
 
     public Pinky(Location start){
-	super(start);
+	super(start, 1);
     }
+    
+   public void startMove(){
+      Location temp = new Location(current.getRow() - 3; current.getCol() );
+    }
+    
     
     public void setAim(PacMan p){
 	Location x=null;

@@ -7,7 +7,12 @@ public class Blinky extends Ghost{
     private int toPac;
 
     public Blinky(Location start){
-	super(start);
+	super(start, 0);
+    }
+    
+    public void startMove(){
+      Location temp = new Location(current.getRow() - 2; current.getCol());
+      current = temp;
     }
     
     public void setAim(PacMan p){
@@ -42,4 +47,3 @@ public class Blinky extends Ghost{
     
     
 }
-
