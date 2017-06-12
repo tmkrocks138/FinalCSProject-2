@@ -9,7 +9,7 @@ public class Pinky extends Ghost{
     }
     
    public void startMove(){
-      Location temp = new Location(current.getRow() - 3; current.getCol() );
+      Location temp = new Location(current.getRow() - 3, current.getCol() );
     }
     
     
