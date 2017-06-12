@@ -42,7 +42,7 @@ void setup(){
 void readMaze(){
   for(Location[] line: board){
     for(Location tile: line){
-      println(tile.getRow() + " " + tile.getCol());
+      //println(tile.getRow() + " " + tile.getCol());
       if(tile.isWall()){
         fill(0, 0, 255);
         rect(tile.getCol() * 25, tile.getRow() * 25, 25, 25);
