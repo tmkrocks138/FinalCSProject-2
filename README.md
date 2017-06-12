@@ -2,12 +2,18 @@
 
 
 Development Log:
-In the beginning of the project (end of May/ early June), Michela put in a Location class and started on a Pellet class. Meanwhile Tara started researching the different movements of the ghosts in pacman as well as PacMan himself
-Towards the middle they began to finalize the backend of the code. Tara worked on ghost algorithms and Michela worked on Location and Pellets properties such as isWall() and eatMe().
-At the end they put all of their things into processing and worked together to make it look nice. This lead to a lot more commits for merging purposes.
+In the beginning of the project (end of May/ early June), Michela repurposed the Location class from MazeSolver to fit our needs and started on a Pellet class. Meanwhile Tara started researching the different ghost movement algorithms in pacman as well as how PacMan himself moves.
+Tara worked on mainly on ghost algorithms and Michela worked on Location and Pellets properties such as isWall() and eatMe().
+Tara wrote PacMan methods and variables to keep track of its location.
+Michela figures out how to read in maze file and print out the maze in processing.
+Michela figures out how to use user input to move PacMan.
+Tara works on draw() and movements of objects.
+Michela finalizes setup() and how to make pacman/ghost icons move with their respective objects.
 
+Important things to know:
+Our PacMan uses the keys "wasd" to move (upper or lowercase works) and our ghosts aim to either catch pacman or escape superPacMan (theorhetically).
 
-Our PacMan uses the keys "wasd" to move and our ghosts aim to either a, catch pacman, or b, escape superPacMan.
-
-Although the logic behing this works, we had lots of Null Pointer Exceptions due the code not find a negative row or column.
+Bugs:
+You cannot go around the side through the tunnel.
+The ghosts do not move as they are supposed to and, though they begin by following their public algorithms they don't move more than about two spaces before stopping.
 
