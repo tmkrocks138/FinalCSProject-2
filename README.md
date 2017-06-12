@@ -1,5 +1,6 @@
 # FinalCSProject-2
 
+Michela Marchini and Tara Khanna's PacMan
 
 Development Log:
 In the beginning of the project (end of May/ early June), Michela repurposed the Location class from MazeSolver to fit our needs and started on a Pellet class. Meanwhile Tara started researching the different ghost movement algorithms in pacman as well as how PacMan himself moves.
@@ -17,4 +18,5 @@ The score prints in the sketch whenever you eat another pellet.
 Bugs:
 You cannot go around the side through the tunnel.
 The ghosts do not move as they are supposed to and, though they begin by following their public algorithms they don't move more than about two spaces before stopping.
+
 
