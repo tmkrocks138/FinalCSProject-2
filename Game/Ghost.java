@@ -20,64 +20,33 @@ public abstract class Ghost{
     public abstract void setAim(PacMan p);
      
     public Location moving(PacMan pac){
-  Location l;
+  Location[] spaces = new Location[4];
   for(int n = 0; n < 4; n++){
-      if (n == 0){
-    try{
-        l = new Location(current.getRow() - 1, current.getCol());
+    if (n == 0){
+      if(current.getRow() - 1 > 0 && ! new Location(current.getRow() - 1, current.getCol()).isWall());
+        spaces[0] = new Location(current.getRow() - 1, current.getCol());
     }
-    catch(NullPointerException e){  
-        l = null;
+    if (n == 1){
+      if(current.getCol() + 1 < 28 && ! new Location(current.getRow(), current.getCol() + 1).isWall());
+        spaces[1] = new Location(current.getRow(), current.getCol() + 1);
     }
-      }
-      else if (n == 1){
-    try{
-        l = new Location(current.getRow(), current.getCol() + 1);
+    if (n == 2){
+      if(current.getRow() + 1 < 29 && ! new Location(current.getRow() + 1, current.getCol()).isWall());
+        spaces[2] = new Location(current.getRow() + 1, current.getCol());
     }
-    catch(NullPointerException e){  
-        l = null;
+    if (n == 3){
+      if(current.getCol() - 1 > 0 && ! new Location(current.getRow(), current.getCol() - 1).isWall());
+        spaces[3] = new Location(current.getRow(), current.getCol() - 1);
     }
-      }
-      else if (n == 2){
-    try{
-        l = new Location(current.getRow() + 1, current.getCol());
-    }
-    catch(NullPointerException e){  
-        l = null;
-    }
-      }
-      else{
-    try{
-        l = new Location(current.getRow(), current.getCol() - 1);
-    }
-    catch(NullPointerException e){  
-        l = null;
-    }
-      }
-      if (l != null && l.isWall()){
-    line[n] = l;
-      }
   }
-  int i = 0;
-  int x = 0;
-  if(line[0] != null){
-      i = setToAim(aim, line[0]);
+  Location min = spaces[0];
+  for(Location tile: spaces){
+    if (setToAim(tile, pac.getPos()) < setToAim(tile, pac.getPos())){
+      min = tile;
+    }
   }
-  else if(line[1] != null){
-      i = setToAim(aim, line[1]);
-      x = 1;
-  }
-  else if(line[2] != null){
-      i = setToAim(aim, line[2]);
-      x = 2;
-  }
-  for(int n = x + 1; n < 4; n++){
-      if(setToAim(aim, line[n]) < i){
-    i = setToAim(aim, line[n]);
-    x = n;
-      }
-  }
-  current = line[x];
+  
+  current = min;
   return current;
     }
   
