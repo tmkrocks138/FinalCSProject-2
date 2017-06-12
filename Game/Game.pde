@@ -68,7 +68,6 @@ void readMaze(){
 }
 
 void draw(){
-  println("Score: " + pac.getPoints());
   if (refresh % 3 != 0){
     if (refresh == 30){
       b.startMove();
@@ -88,6 +87,7 @@ void draw(){
     } 
     if (refresh > 60){
        b.moving(pac);
+       println(b.getPos().getCol() + " " + b.getPos().getRow());
        image(blinkyImage, b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25);
      }
      if (refresh > 120){
@@ -108,6 +108,7 @@ void draw(){
     rect(pac.getPos().getCol() * 25, pac.getPos().getRow() * 25, 25, 25);  
     pac.move(key);
     image(pacImage, pac.getPos().getCol() * 25, pac.getPos().getRow() * 25, 25, 25);
+    //println ("Score: " + pac.getPoints());
   }
   refresh++;
 }
