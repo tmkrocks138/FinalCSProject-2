@@ -12,6 +12,7 @@ Michela finalizes setup() and how to make pacman/ghost icons move with their res
 
 Important things to know:
 Our PacMan uses the keys "wasd" to move (upper or lowercase works) and our ghosts aim to either catch pacman or escape superPacMan (theorhetically).
+The score prints in the sketch whenever you eat another pellet.
 
 Bugs:
 You cannot go around the side through the tunnel.
