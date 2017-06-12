@@ -23,24 +23,40 @@
     Location l;
     for(int n = 0; n < 4; n++){
         if (n == 0){
+          try{
       l = new Location(current.getRow() - 1, current.getCol());
+          }
+          catch(NullPointerException e){  
+          l = null;
+        }
         }
         else if (n == 1){
+          try{
       l = new Location(current.getRow(), current.getCol() + 1);
+              }
+          catch(NullPointerException e){  
+          l = null;
+        }
         }
         else if (n == 2){
+          try{
       l = new Location(current.getRow() + 1, current.getCol());
+              }
+          catch(NullPointerException e){  
+          l = null;
+        }
         }
         else{
+try{
       l = new Location(current.getRow(), current.getCol() - 1);
+              }
+          catch(NullPointerException e){  
+          l = null;
         }
-        if(!l.isWall()){
-      line[n] = null;
-        }
-        else{
+      }
+
       line[n] = l;
-        }
-    }
+         }
     int i = 0;
     int x = 0;
     if(line[0] != null){
@@ -101,10 +117,20 @@
       }
   
       public int getRow(){
+        try{
     return current.getRow();
+        }
+        catch(NullPointerException e){
+         return -1;
+        }
       }
       public int getCol(){
-    return current.getCol();
+        try{
+    return current.getRow();
+        }
+        catch(NullPointerException e){
+        return -1;
+        }
       }
   
       public Location getPos(){

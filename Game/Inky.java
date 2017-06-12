@@ -49,13 +49,18 @@ public class Inky extends Ghost{
 	return r + s;
     }
     public int setToAim(Location l, Location loc){
-	int a = l.getRow();
-	int b = loc.getRow();
-	int c = l.getCol();
-	int d = loc.getCol();
-	int r = Math.abs(a - b);
-	int s = Math.abs(c - d);
-	return r + s;
+      try{
+  int a = l.getRow();
+  int b = loc.getRow();
+  int c = l.getCol();
+  int d = loc.getCol();
+  int r = Math.abs(a - b);
+  int s = Math.abs(c - d);
+  return r + s;
+}
+catch(NullPointerException e){
+  return -1;
+}
     }
 
     

@@ -63,6 +63,7 @@ public class Pinky extends Ghost{
     }
     
     public int setToAim(Location l, Location loc){
+      try{
 	int a = l.getRow();
 	int b = loc.getRow();
 	int c = l.getCol();
@@ -70,5 +71,9 @@ public class Pinky extends Ghost{
 	int r = Math.abs(a - b);
 	int s = Math.abs(c - d);
 	return r + s;
+      }
+      catch (NullPointerException e){
+      return -1;
+      }
     }
 }

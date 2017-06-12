@@ -68,7 +68,7 @@ void readMaze(){
 }
 
 void draw(){
-  if (refresh % 3 != 0){
+  if (refresh % 10 == 0){
     if (refresh == 30){
       b.startMove();
       image(blinkyImage, b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25);
@@ -86,18 +86,26 @@ void draw(){
       image(clydeImage, c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
     } 
     if (refresh > 60){
-       b.moving(pac);
-       image(blinkyImage, b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25);
+      fill(0, 0, 0);
+      rect(b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25); 
+      b.moving(pac);
+      image(blinkyImage, b.getCol() * 25, b.getRow() * 25, 25, 25);
      }
      if (refresh > 120){
+       fill(0, 0, 0);
+        rect(p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
        p.moving(pac);
        image(pinkyImage, p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
      }
      if (refresh > 180){
+       fill(0, 0, 0);
+    rect(i.getPos().getCol() * 25, i.getPos().getRow() * 25, 25, 25);
        i.moving(pac);
        image(inkyImage, i.getPos().getCol() * 25, i.getPos().getRow() * 25, 27, 27);
      }
      if (refresh > 240){
+       fill(0, 0, 0);
+    rect(c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
        c.moving(pac);
        image(clydeImage, c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
      }

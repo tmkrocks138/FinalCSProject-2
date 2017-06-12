@@ -28,12 +28,15 @@ public class Location{
     public int getRow(){
 	return row;
     }
+    
     public int getCol(){
 	return col;
     }
+    
     public boolean isWall(){
 	return isWall;
     }
+    
     public boolean hasPellet(){
 	return hasPellet;
     }
@@ -41,6 +44,7 @@ public class Location{
     public void setWall(boolean wall){
 	isWall = wall;
     }
+    
     public void setPellet(boolean pellet){
     	hasPellet = pellet;
     }
