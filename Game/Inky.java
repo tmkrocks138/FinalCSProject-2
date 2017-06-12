@@ -5,7 +5,7 @@ public class Inky extends Ghost{
     }
 
    public void startMove(){
-      Location temp = new Location(current.getRow() - 2, current.getCol() );
+      Location temp = new Location(current.getRow() - 3, current.getCol() );
     }
     
     public void setAim(PacMan p){

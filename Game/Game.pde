@@ -88,25 +88,29 @@ void draw(){
     if (refresh > 60){
       fill(0, 0, 0);
       rect(b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25); 
-      b.moving(pac);
+      Blinky temp = new Blinky(b.moving(pac));
+      b = temp;
       image(blinkyImage, b.getCol() * 25, b.getRow() * 25, 25, 25);
      }
      if (refresh > 120){
        fill(0, 0, 0);
         rect(p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
-       p.moving(pac);
+       Pinky temp = new Pinky(p.moving(pac));
+      p = temp;
        image(pinkyImage, p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
      }
      if (refresh > 180){
        fill(0, 0, 0);
     rect(i.getPos().getCol() * 25, i.getPos().getRow() * 25, 25, 25);
-       i.moving(pac);
+      Inky temp = new Inky(i.moving(pac));
+      i = temp;
        image(inkyImage, i.getPos().getCol() * 25, i.getPos().getRow() * 25, 27, 27);
      }
      if (refresh > 240){
        fill(0, 0, 0);
     rect(c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
-       c.moving(pac);
+      Clyde temp = new Clyde(c.moving(pac));
+      c = temp;
        image(clydeImage, c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
      }
   }

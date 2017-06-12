@@ -11,7 +11,7 @@ public class Blinky extends Ghost{
     }
     
     public void startMove(){
-      Location temp = new Location(current.getRow() - 2, current.getCol());
+      Location temp = new Location(current.getRow() - 3, current.getCol());
       current = temp;
     }
     
