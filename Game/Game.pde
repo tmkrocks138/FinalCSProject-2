@@ -68,24 +68,27 @@ void readMaze(){
 }
 
 void draw(){
-  if (refresh % 10 == 0){
-    if (refresh == 30){
+try{
+  if (refresh % 5 == 0){
+    if (refresh == 0){
       b.startMove();
       image(blinkyImage, b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25);
     } 
-    if (refresh == 90){
+    if (refresh == 60){
       p.startMove();
       image(pinkyImage, p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
     } 
-    if (refresh == 150){
+    if (refresh == 120){
       i.startMove();
       image(inkyImage, i.getPos().getCol() * 25, i.getPos().getRow() * 25, 27, 27);
     } 
-    if (refresh == 210){
+    if (refresh == 180){
       c.startMove();
       image(clydeImage, c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
     } 
     if (refresh > 60){
+      System.out.println(refresh);
+      b.setAim(pac);
       fill(0, 0, 0);
       rect(b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25); 
       Blinky temp = new Blinky(b.moving(pac));
@@ -93,6 +96,8 @@ void draw(){
       image(blinkyImage, b.getCol() * 25, b.getRow() * 25, 25, 25);
      }
      if (refresh > 120){
+       System.out.println(refresh);
+        p.setAim(pac);
        fill(0, 0, 0);
         rect(p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
        Pinky temp = new Pinky(p.moving(pac));
@@ -100,6 +105,8 @@ void draw(){
        image(pinkyImage, p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
      }
      if (refresh > 180){
+       System.out.println(refresh);
+         i.setAim(pac);
        fill(0, 0, 0);
     rect(i.getPos().getCol() * 25, i.getPos().getRow() * 25, 25, 25);
       Inky temp = new Inky(i.moving(pac));
@@ -107,6 +114,7 @@ void draw(){
        image(inkyImage, i.getPos().getCol() * 25, i.getPos().getRow() * 25, 27, 27);
      }
      if (refresh > 240){
+        c.setAim(pac);
        fill(0, 0, 0);
     rect(c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
       Clyde temp = new Clyde(c.moving(pac));
@@ -120,6 +128,10 @@ void draw(){
     pac.move(key);
     image(pacImage, pac.getPos().getCol() * 25, pac.getPos().getRow() * 25, 25, 25);
     //println ("Score: " + pac.getPoints());
+  }
+    }
+  catch (NullPointerException e){
+    System.out.println("oops");
   }
   refresh++;
 }
