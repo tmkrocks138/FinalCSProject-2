@@ -5,7 +5,7 @@ int refresh = 0;
 Ghost b, c, i, p;
 
 void setup(){
-    size(700, 700);
+    size(700, 725);
     background(0); 
     map = new Maze("data/data.txt");
     board = map.getBoard();
@@ -23,7 +23,7 @@ void setup(){
 void readMaze(){
   for(Location[] line: board){
     for(Location tile: line){
-      //println(tile.getRow() + " " + tile.getCol());
+      println(tile.getRow() + " " + tile.getCol());
       if(tile.isWall()){
         fill(0, 0, 255);
         rect(tile.getCol() * 25, tile.getRow() * 25, 25, 25);
