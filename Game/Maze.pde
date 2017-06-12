@@ -45,7 +45,7 @@ public class Maze{
     Location input = new Location(r, c, true, false);
     Pellets pellet = new Pellets(input);
     board[r][c] = new Location (r, c, true, false, pellet);
-  }
+    }
     if(maze[r][c]=='*'){
 /*        Pellets pellet;
         Location input = new Location(r, c, true, false, pellet = new SuperPellets(input));
@@ -55,8 +55,6 @@ public class Maze{
     Pellets pellet = new SuperPellets(input);
     board[r][c] = new Location (r, c, true, false, pellet);
     }
-      
-  
       }
   }
   maxRows = maze.length;
