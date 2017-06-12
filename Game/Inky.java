@@ -11,10 +11,10 @@ public class Inky extends Ghost{
     public void setAim(PacMan p){
 	Location x;
 	if (mode == 0){
-	    x = getBetween(this.getPos(), p.getPos());
+	    x = getBetween(current, p.getPos());
 	}
 	else{
-	    x = getBetween(this.getPos(), p.getOp());
+	    x = getBetween(current, p.getOp());
 	}
 	aim = x;
     }
@@ -49,18 +49,7 @@ public class Inky extends Ghost{
 	return r + s;
     }
     public int setToAim(Location l, Location loc){
-      try{
-  int a = l.getRow();
-  int b = loc.getRow();
-  int c = l.getCol();
-  int d = loc.getCol();
-  int r = Math.abs(a - b);
-  int s = Math.abs(c - d);
-  return r + s;
-}
-catch(NullPointerException e){
-  return -1;
-}
+      return l.dist(loc);
     }
 
     

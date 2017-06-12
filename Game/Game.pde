@@ -24,6 +24,11 @@ void setup(){
     i = new Inky(new Location(15, 13)); // blue = 2
     p = new Pinky(new Location(14, 13)); //pink = 1
     
+    b.setBoard(board);
+    c.setBoard(board);
+    i.setBoard(board);
+    p.setBoard(board);
+    
     pacImage = loadImage("pacman.png");
     pinkyImage = loadImage("pinky.png");
     clydeImage = loadImage("clyde.png");
@@ -87,7 +92,7 @@ try{
       image(clydeImage, c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
     } 
     if (refresh > 60){
-      System.out.println(refresh);
+      //System.out.println(refresh);
       b.setAim(pac);
       fill(0, 0, 0);
       rect(b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25); 
@@ -96,29 +101,29 @@ try{
       image(blinkyImage, b.getCol() * 25, b.getRow() * 25, 25, 25);
      }
      if (refresh > 120){
-       System.out.println(refresh);
+      // System.out.println(refresh);
         p.setAim(pac);
        fill(0, 0, 0);
         rect(p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
-       Pinky temp = new Pinky(p.moving(pac));
-      p = temp;
+       Pinky temp1 = new Pinky(p.moving(pac));
+      p = temp1;
        image(pinkyImage, p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
      }
      if (refresh > 180){
-       System.out.println(refresh);
+     //  System.out.println(refresh);
          i.setAim(pac);
        fill(0, 0, 0);
     rect(i.getPos().getCol() * 25, i.getPos().getRow() * 25, 25, 25);
-      Inky temp = new Inky(i.moving(pac));
-      i = temp;
+      Inky temp2 = new Inky(i.moving(pac));
+      i = temp2;
        image(inkyImage, i.getPos().getCol() * 25, i.getPos().getRow() * 25, 27, 27);
      }
      if (refresh > 240){
         c.setAim(pac);
        fill(0, 0, 0);
     rect(c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
-      Clyde temp = new Clyde(c.moving(pac));
-      c = temp;
+      Clyde temp3 = new Clyde(c.moving(pac));
+      c = temp3;
        image(clydeImage, c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
      }
   }
@@ -127,11 +132,14 @@ try{
     rect(pac.getPos().getCol() * 25, pac.getPos().getRow() * 25, 25, 25);  
     pac.move(key);
     image(pacImage, pac.getPos().getCol() * 25, pac.getPos().getRow() * 25, 25, 25);
-    //println ("Score: " + pac.getPoints());
+    println ("Score: " + pac.getPoints());
   }
     }
   catch (NullPointerException e){
-    System.out.println("oops");
+    //System.out.println("oops");
+  }
+  if (refresh > 120){
+    refresh = 0;
   }
   refresh++;
 }

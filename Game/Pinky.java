@@ -14,12 +14,12 @@ public class Pinky extends Ghost{
     
     
     public void setAim(PacMan p){
-	Location x=null;
+	Location x;
 	if (mode == 0){
 	    x = findSpot(p.getPos(), p.getDirection());
 	   
 	}
-	else if (mode == 1){
+	else{
 	    x = findSpot(p.getOp(), p.getDirection());
 	}
 	aim = x;
@@ -27,7 +27,7 @@ public class Pinky extends Ghost{
     }
 
     public Location findSpot(Location l, char dir){
-	Location z = null;
+	Location z;
 	int r = l.getRow();
 	int c = l.getCol();
 	try{
@@ -40,8 +40,8 @@ public class Pinky extends Ghost{
 	    else if (dir == 'd'){
 		z = new Location(r, c + 2);
 	    }
-	    else if (dir == 'w'){
-		z = new Location (r - 4, c - 4);
+	    else{
+		z = new Location (r + 2, c);
 	    }
 	}
 	catch(IndexOutOfBoundsException e){
@@ -63,17 +63,6 @@ public class Pinky extends Ghost{
     }
     
     public int setToAim(Location l, Location loc){
-      try{
-	int a = l.getRow();
-	int b = loc.getRow();
-	int c = l.getCol();
-	int d = loc.getCol();
-	int r = Math.abs(a - b);
-	int s = Math.abs(c - d);
-	return r + s;
-      }
-      catch (NullPointerException e){
-      return -1;
-      }
+      return l.dist(loc);
     }
 }

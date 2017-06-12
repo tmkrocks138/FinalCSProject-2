@@ -7,6 +7,7 @@ public abstract class Ghost{
     int mode, speed, color;
     boolean alive;
     Location[] line;
+    private Location[][] board;
       
     public Ghost(Location start, int c){
   color = c;//later
@@ -23,20 +24,20 @@ public abstract class Ghost{
   Location[] spaces = new Location[4];
   for(int n = 0; n < 4; n++){
     if (n == 0){
-      if(current.getRow() - 1 > 0 && ! new Location(current.getRow() - 1, current.getCol()).isWall());
-        spaces[0] = new Location(current.getRow() - 1, current.getCol());
+      if(current.getRow() - 1 > 0 && !board[current.getRow() - 1][current.getCol()].isWall());
+        spaces[0] = board[current.getRow() - 1][current.getCol()];
     }
     if (n == 1){
-      if(current.getCol() + 1 < 28 && ! new Location(current.getRow(), current.getCol() + 1).isWall());
-        spaces[1] = new Location(current.getRow(), current.getCol() + 1);
+      if(current.getCol() + 1 < 29 && !board[current.getRow()][current.getCol() + 1].isWall());
+        spaces[1] =board[current.getRow()][current.getCol() + 1];
     }
     if (n == 2){
-      if(current.getRow() + 1 < 29 && ! new Location(current.getRow() + 1, current.getCol()).isWall());
-        spaces[2] = new Location(current.getRow() + 1, current.getCol());
+      if(current.getRow() + 1 < 28 && !board[current.getRow() + 1][current.getCol()].isWall());
+        spaces[2] = board[current.getRow() + 1][current.getCol()];
     }
     if (n == 3){
-      if(current.getCol() - 1 > 0 && ! new Location(current.getRow(), current.getCol() - 1).isWall());
-        spaces[3] = new Location(current.getRow(), current.getCol() - 1);
+      if(current.getCol() - 1 > 0 && !board[current.getRow()][current.getCol() - 1].isWall());
+        spaces[3] = board[current.getRow()][current.getCol()-1];
     }
   }
   Location min = spaces[0];
@@ -105,6 +106,10 @@ public abstract class Ghost{
   
     public Location getPos(){
   return current;
+    }
+    
+    public void setBoard(Location[][] map){
+      board = map;
     }
   
       
