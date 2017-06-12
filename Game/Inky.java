@@ -1,9 +1,13 @@
 public class Inky extends Ghost{
 
     public Inky(Location start){
-	super(start);
+	super(start, 2);
     }
 
+   public void startMove(){
+      Location temp = new Location(current.getRow() - 2, current.getCol() );
+    }
+    
     public void setAim(PacMan p){
 	Location x;
 	if (mode == 0){

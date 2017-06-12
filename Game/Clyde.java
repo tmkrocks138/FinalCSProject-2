@@ -5,9 +5,12 @@ import java.util.*;
 public class Clyde extends Ghost{
 
     public Clyde(Location start){
-	super(start);
+	super(start, 3);
     }
-
+   public void startMove(){
+      Location temp = new Location(current.getRow() - 3, current.getCol() );
+    }
+    
     public boolean tooClose(Location l){
 	int x = l.getRow() + l.getCol();
 	int y = this.getRow() + this.getCol();
