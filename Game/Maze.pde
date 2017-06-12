@@ -7,8 +7,8 @@ public class Maze{
     
     private Location home;
     private int maxRows, maxCols;
-    private char[][] maze = new char[28][28];
-    private Location[][] board = new Location[28][28];
+    private char[][] maze = new char[29][28];
+    private Location[][] board = new Location[29][28];
 
     public Maze(String filename){
   String[] lines= loadStrings("data.txt"); 
@@ -24,7 +24,7 @@ public class Maze{
 
   for(int r=0; r<maze.length;r++){
       for(int c=0; c<maze[r].length;c++){
-    if(maze[r][c]=='#'){
+    if(maze[r][c]=='#' || maze[r][c]=='_'){
         Location input = new Location(r, c, false, true);
         board[r][c] = input;
     }
@@ -55,6 +55,7 @@ public class Maze{
     Pellets pellet = new SuperPellets(input);
     board[r][c] = new Location (r, c, true, false, pellet);
     }
+      
   
       }
   }
@@ -75,5 +76,4 @@ public class Maze{
     public Location[][] getBoard(){
   return board;
     }
-
 }
