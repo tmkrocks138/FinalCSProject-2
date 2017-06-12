@@ -16,6 +16,9 @@
   	line = new Location[4];
       }
      public abstract void startMove();
+     
+     public abstract void setAim(PacMan p);
+     
       public void moving(PacMan pac){
   	Location l;
   	for(int n = 0; n < 4; n++){
