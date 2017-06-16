@@ -24,11 +24,11 @@ void setup(){
     i = new Inky(new Location(15, 13)); // blue = 2
     p = new Pinky(new Location(14, 13)); //pink = 1
     
-    b.setBoard(board);
+/*    b.setBoard(board);
     c.setBoard(board);
     i.setBoard(board);
     p.setBoard(board);
-    
+  */  
     pacImage = loadImage("pacman.png");
     pinkyImage = loadImage("pinky.png");
     clydeImage = loadImage("clyde.png");
@@ -42,7 +42,6 @@ void setup(){
     image(inkyImage, 15 * 25, 13 * 25, 27, 27);
     
     frameRate(30);
-    
     
 }
 
@@ -96,7 +95,7 @@ try{
       b.setAim(pac);
       fill(0, 0, 0);
       rect(b.getPos().getCol() * 25, b.getPos().getRow() * 25, 25, 25); 
-      Blinky temp = new Blinky(b.moving(pac));
+      Blinky temp = new Blinky(b.moving(pac, board));
       b = temp;
       image(blinkyImage, b.getCol() * 25, b.getRow() * 25, 25, 25);
      }
@@ -105,7 +104,7 @@ try{
         p.setAim(pac);
        fill(0, 0, 0);
         rect(p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
-       Pinky temp1 = new Pinky(p.moving(pac));
+       Pinky temp1 = new Pinky(p.moving(pac, board));
       p = temp1;
        image(pinkyImage, p.getPos().getCol() * 25, p.getPos().getRow() * 25, 25, 25);
      }
@@ -114,7 +113,7 @@ try{
          i.setAim(pac);
        fill(0, 0, 0);
     rect(i.getPos().getCol() * 25, i.getPos().getRow() * 25, 25, 25);
-      Inky temp2 = new Inky(i.moving(pac));
+      Inky temp2 = new Inky(i.moving(pac, board));
       i = temp2;
        image(inkyImage, i.getPos().getCol() * 25, i.getPos().getRow() * 25, 27, 27);
      }
@@ -122,7 +121,7 @@ try{
         c.setAim(pac);
        fill(0, 0, 0);
     rect(c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
-      Clyde temp3 = new Clyde(c.moving(pac));
+      Clyde temp3 = new Clyde(c.moving(pac, board));
       c = temp3;
        image(clydeImage, c.getPos().getCol() * 25, c.getPos().getRow() * 25, 25, 25);
      }
@@ -136,7 +135,7 @@ try{
   }
     }
   catch (NullPointerException e){
-    //System.out.println("oops");
+    System.out.println("oops");
   }
   if (refresh > 120){
     refresh = 0;
